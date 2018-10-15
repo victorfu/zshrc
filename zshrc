@@ -30,6 +30,7 @@ plugins=(
   brew
   sudo
   virtualenv
+  extract
   zsh-syntax-highlighting
   history-substring-search
   zsh-vim-mode
@@ -48,6 +49,7 @@ export GOPATH="$HOME/goprojects"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
 export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+export JADX_HOME="$HOME/Softwares/jadx"
 
 # python virtualenvs
 export WORKON_HOME=$HOME/.virtualenvs
@@ -66,6 +68,8 @@ export PATH="$PATH:$SOFTWARE_HOME/bin"
 export PATH="$PATH:$GEM_HOME/bin"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:/usr/local/opt/openssl@1.1/bin"
+export PATH="$PATH:/usr/local/opt/apr/bin"
+export PATH="$PATH:$JADX_HOME/bin"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -76,15 +80,25 @@ export EDITOR='vim'
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+# alias
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias ls="ls -hGF"
 alias ll="ls -AlF"
-alias gtg="cd $GOPATH"
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias mkdir="mkdir -pv"
+alias .2="cd ../../"
+alias .3="cd ../../../"
+alias .4="cd ../../../../"
+alias .5="cd ../../../../../"
+alias .6="cd ../../../../../../"
+alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
+alias gopath="cd $GOPATH"
+alias c="clear"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh"  ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion"  ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-bindkey '^a' autosuggest-accept
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=cyan"
